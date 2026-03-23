@@ -161,26 +161,25 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Abstract Layout Diagram */}
+          {/* Plan View Drawing */}
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mt-20 border border-border p-8 md:p-16 relative bg-noise"
+            className="mt-20 relative"
           >
-            <div className="absolute top-4 left-4 text-xs font-mono text-muted-foreground">FIG 1. PLAN VIEW</div>
-            <div className="w-full aspect-[21/9] flex items-stretch justify-center gap-2 md:gap-4 p-4 md:p-12">
-              <div className="w-1/4 bg-earth-stone/20 border border-earth-stone/40 flex items-center justify-center text-xs tracking-widest text-muted-foreground rotate-180" style={{ writingMode: 'vertical-rl' }}>SLEEP</div>
-              <div className="w-1/2 flex flex-col gap-2 md:gap-4">
-                <div className="flex-1 bg-earth-sand/20 border border-earth-sand/40 flex items-center justify-center text-xs tracking-widest text-muted-foreground">SOCIAL / KITCHEN</div>
-                <div className="h-1/3 bg-earth-olive/20 border border-earth-olive/40 flex items-center justify-center text-xs tracking-widest text-earth-olive font-medium">BUNKER (QUIET)</div>
-              </div>
-              <div className="w-1/4 bg-earth-stone/20 border border-earth-stone/40 flex items-center justify-center text-xs tracking-widest text-muted-foreground rotate-180" style={{ writingMode: 'vertical-rl' }}>SLEEP</div>
+            <div className="absolute top-4 left-4 z-10 text-xs font-mono text-muted-foreground tracking-widest uppercase">Fig 1. Plan View & Section</div>
+            <div className="w-full border border-border overflow-hidden bg-[#f5f0e8]">
+              <img
+                src={`${import.meta.env.BASE_URL}images/plan-view.png`}
+                alt="EarthPod architectural plan view and section drawing showing circular layout with boma, living areas, photography bunker, and waterhole"
+                className="w-full h-auto object-contain max-h-[80vh]"
+              />
             </div>
-            <div className="mt-8 text-center text-sm font-light text-muted-foreground flex items-center justify-center gap-4">
+            <div className="mt-4 text-center text-xs font-light text-muted-foreground flex items-center justify-center gap-4 tracking-widest uppercase">
               <span className="w-12 h-[1px] bg-border"></span>
-              WATERHOLE PROXIMITY
+              Boma · Living Areas · Light Well · Photography · Waterhole
               <span className="w-12 h-[1px] bg-border"></span>
             </div>
           </motion.div>
