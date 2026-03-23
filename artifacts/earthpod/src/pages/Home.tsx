@@ -607,6 +607,71 @@ export default function Home() {
           <h2 className="font-serif text-4xl md:text-5xl mb-6">EarthPod<span className="text-lg align-super">™</span></h2>
           <p className="text-white/60 font-light mb-12 max-w-md">Architecture that yields to nature. Designed for stillness, observation, and ecological respect.</p>
 
+          <div className="w-full h-[1px] bg-white/10 mb-12" />
+
+          {/* Partner logos */}
+          <div className="mb-12 w-full">
+            <p className="text-xs font-mono tracking-widest uppercase text-white/30 mb-10">In collaboration with</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-20">
+
+              {/* Huizemark — orange circle with white lowercase h */}
+              <div className="flex flex-col items-center gap-3 opacity-85 hover:opacity-100 transition-opacity cursor-pointer">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="32" fill="#F07D22"/>
+                  <path
+                    d="M20 44V20H26V29C27.3 27.5 29.1 26.6 31.2 26.6C35.4 26.6 38.4 29.6 38.4 34.2V44H32.4V35C32.4 32.7 31.2 31.4 29.2 31.4C27.1 31.4 25.9 32.8 25.9 35.2V44H20Z"
+                    fill="white"
+                  />
+                </svg>
+                <span className="text-xs tracking-widest uppercase text-white/40 font-light">Huizemark</span>
+              </div>
+
+              {/* AOA — black square, bold AWA mark with yellow accent */}
+              <div className="flex flex-col items-center gap-3 opacity-85 hover:opacity-100 transition-opacity cursor-pointer">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="64" height="64" rx="10" fill="#111111"/>
+                  {/* Left A */}
+                  <path d="M7 46 L15 18 H19 L22 30 H17 L15.5 24 L10.5 46Z" fill="white"/>
+                  <rect x="10" y="32" width="10" height="3.5" rx="1.5" fill="white"/>
+                  {/* Middle W in yellow */}
+                  <path d="M22 18 H26 L29 34 L32 22 L35 34 L38 18 H42 L37 46 H33 L32 36 L31 46 H27Z" fill="#FFD700"/>
+                  {/* Right A */}
+                  <path d="M42 46 L53.5 18 H57.5 L62 46 H56.5 L55 40 H50 L48.5 46Z" fill="white"/>
+                  <rect x="50.5" y="32" width="10" height="3.5" rx="1.5" fill="white"/>
+                  <path d="M51 38 L54.5 22 L58 38Z" fill="white"/>
+                </svg>
+                <span className="text-xs tracking-widest uppercase text-white/40 font-light">AOA</span>
+              </div>
+
+              {/* DCC — black square, camera-lens icon split yellow/grey, yellow DCC text */}
+              <div className="flex flex-col items-center gap-3 opacity-85 hover:opacity-100 transition-opacity cursor-pointer">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="64" height="64" rx="10" fill="#111111"/>
+                  {/* Outer ring */}
+                  <circle cx="32" cy="28" r="16" fill="#888888"/>
+                  {/* Yellow left half via clip */}
+                  <path d="M32 12 A16 16 0 0 0 32 44 Z" fill="#FFD700"/>
+                  {/* Inner lens ring */}
+                  <circle cx="32" cy="28" r="8" fill="none" stroke="#111" strokeWidth="2"/>
+                  {/* Diagonal slash across the circle */}
+                  <line x1="19" y1="14" x2="45" y2="42" stroke="#111111" strokeWidth="3" strokeLinecap="round"/>
+                  {/* DCC label */}
+                  <text
+                    x="32" y="59"
+                    textAnchor="middle"
+                    fontFamily="Arial, Helvetica, sans-serif"
+                    fontWeight="800"
+                    fontSize="11"
+                    fill="#FFD700"
+                    letterSpacing="3"
+                  >DCC</text>
+                </svg>
+                <span className="text-xs tracking-widest uppercase text-white/40 font-light">DCC</span>
+              </div>
+
+            </div>
+          </div>
+
           <div className="w-full h-[1px] bg-white/10 mb-8" />
 
           <div className="flex flex-col md:flex-row justify-between w-full text-xs tracking-widest uppercase text-white/40">
