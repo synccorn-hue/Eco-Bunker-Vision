@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { SectionHeader } from "@/components/SectionHeader";
+import { ContactForm } from "@/components/ContactForm";
 import { Eye, Sun, Wind, Camera, Bed, Utensils, Map, Leaf, Download, Compass, Lightbulb, Layers } from "lucide-react";
 
 export default function Home() {
@@ -69,18 +70,19 @@ export default function Home() {
       <div
         ref={lionRef}
         className="relative w-full overflow-hidden"
-        style={{ height: "60vh" }}
+        style={{ height: "55vh", minHeight: 280 }}
       >
         <motion.div
-          style={{ y: lionY, top: "-20%", bottom: "-20%", position: "absolute", left: 0, right: 0 }}
+          style={{ y: lionY, position: "absolute", top: "-20%", bottom: "-20%", left: 0, right: 0, willChange: "transform" }}
         >
           <img
             src={`${import.meta.env.BASE_URL}images/lions-eye.jpg`}
             alt="Lion's eyes — eye-level with the wild"
             className="w-full h-full object-cover object-center"
+            loading="eager"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
       </div>
 
       {/* INTRODUCTION */}
@@ -376,7 +378,7 @@ export default function Home() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="hidden lg:block w-full h-[220px] mt-10 bg-earth-stone/10 border border-border relative overflow-hidden"
+                  className="hidden lg:block w-full h-[180px] mt-10 bg-earth-stone/10 border border-border relative overflow-hidden"
                 >
                   <img
                     src={`${import.meta.env.BASE_URL}images/texture-stone.png`}
@@ -386,6 +388,29 @@ export default function Home() {
                   <div className="absolute inset-0 flex items-center justify-center p-8">
                     <Map className="w-10 h-10 text-earth-stone/50" strokeWidth={1} />
                   </div>
+                </motion.div>
+
+                {/* PDF Booklet Download */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="mt-8 pt-8 border-t border-border"
+                >
+                  <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Publication · 2026</p>
+                  <h4 className="font-serif text-xl text-foreground mb-2">EarthPod™ Booklet</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    Download the full architectural booklet — concept, site analysis, sun orientation, spatial rationale, precedents, and renders.
+                  </p>
+                  <a
+                    href={`${import.meta.env.BASE_URL}downloads/EarthPod-Eco-Bunker-Booklet-2026.pdf`}
+                    download="EarthPod-Eco-Bunker-Booklet-2026.pdf"
+                    className="inline-flex items-center gap-2 bg-earth-deep text-white px-6 py-3 font-sans text-xs tracking-widest uppercase hover:bg-earth-olive transition-colors duration-300 group"
+                  >
+                    <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+                    Download — PDF
+                  </a>
+                  <p className="mt-3 text-xs text-muted-foreground/60 tracking-wide">26.02.2026 · Architectural Magazine</p>
                 </motion.div>
               </div>
             </div>
@@ -489,6 +514,63 @@ export default function Home() {
                   </div>
                 </motion.div>
               </div>
+
+              {/* What the Reserve Offers */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="font-serif text-3xl text-foreground mb-6">What the Reserve Offers</h3>
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  Klaserie Private Nature Reserve is one of South Africa's largest unfenced private reserves, seamlessly integrated into the Greater Kruger ecosystem. No crowds. No boundaries between you and the wild.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    { title: "Big 5 Wildlife", desc: "Lion, leopard, elephant, rhino, and buffalo roam freely through the reserve." },
+                    { title: "380+ Bird Species", desc: "A birder's paradise — from raptors and hornbills to rare woodland kingfishers." },
+                    { title: "Night Safaris", desc: "Nocturnal drives reveal a hidden world — civets, genets, and nightjars emerge after dark." },
+                    { title: "Walking Safaris", desc: "Track game on foot with experienced rangers — the most intimate encounter nature offers." },
+                    { title: "Photography Safaris", desc: "Specialist photographic drives timed to golden hour for world-class wildlife images." },
+                    { title: "No-Fence Boundary", desc: "Open to Kruger National Park — wildlife moves freely across one of Africa's great ecosystems." },
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-card border border-border p-5">
+                      <h4 className="font-sans font-medium text-sm uppercase tracking-widest text-foreground mb-2">{item.title}</h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Nearby Attractions */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="font-serif text-3xl text-foreground mb-6">Nearby Attractions</h3>
+                <div className="space-y-5">
+                  {[
+                    { name: "Kruger National Park", dist: "±12 km", desc: "One of Africa's greatest game reserves — the Greater Kruger ecosystem extends directly from Klaserie's eastern boundary." },
+                    { name: "Blyde River Canyon", dist: "±60 km", desc: "Africa's largest green canyon. The Three Rondavels, Bourke's Luck Potholes, and God's Window are all within reach." },
+                    { name: "Hoedspruit Endangered Species Centre", dist: "±43 km", desc: "A cheetah and endangered species rehabilitation and breeding facility — home to cheetah, wild dog, and pangolin." },
+                    { name: "Kapama Game Reserve", dist: "±30 km", desc: "Renowned Big 5 game reserve offering luxury bush experiences and specialist photography safaris." },
+                    { name: "Panorama Route & Abel Erasmus Pass", dist: "±80 km", desc: "One of South Africa's most scenic drives through the Drakensberg escarpment — waterfalls, valleys, and dramatic passes." },
+                    { name: "Eastgate Airport", dist: "±37 km", desc: "Direct bush flights from Johannesburg and Cape Town. Fly-in access to the Lowveld, no long road transfers." },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex gap-5 py-4 border-b border-border last:border-0">
+                      <div className="shrink-0 text-right min-w-[60px]">
+                        <span className="text-xs font-mono tracking-widest text-earth-olive">{item.dist}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-sans font-medium text-foreground text-sm mb-1">{item.name}</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
             </div>
           </div>
         </div>
@@ -589,39 +671,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DOWNLOAD BOOKLET */}
-      <section className="py-24 md:py-32 px-6 bg-background">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="border border-border p-12 md:p-20 text-center relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-earth-olive to-transparent" />
+      {/* CONTACT */}
+      <section id="contact" className="py-24 md:py-32 px-6 bg-card">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            number="07"
+            title="Get in Touch"
+            subtitle="Book a viewing or find out more."
+          />
 
-            <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-6">Publication · 2026</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-              EarthPod™ Booklet
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto mb-10">
-              Download the full architectural booklet — concept, site analysis, sun orientation, spatial rationale, precedents, and renders. A complete introduction to EarthPod™ as a biome-integrated wildlife observation pod.
-            </p>
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 mt-16">
 
-            <a
-              href={`${import.meta.env.BASE_URL}downloads/EarthPod-Eco-Bunker-Booklet-2026.pdf`}
-              download="EarthPod-Eco-Bunker-Booklet-2026.pdf"
-              className="inline-flex items-center gap-3 bg-earth-deep text-white px-10 py-4 font-sans text-sm tracking-widest uppercase hover:bg-earth-olive transition-colors duration-300 group"
+            {/* Contact details */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-10"
             >
-              <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-              Download Booklet — PDF
-            </a>
+              <div>
+                <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">Arrange a Private Viewing</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Whether you're a wildlife photographer, investor, or nature enthusiast, we'd love to show you EarthPod™. Reach out to schedule a site visit or to find out more about the project.
+                </p>
+              </div>
 
-            <p className="mt-6 text-xs text-muted-foreground tracking-wide">
-              26.02.2026 · Architectural Magazine · EarthPod™
-            </p>
-          </motion.div>
+              <div className="space-y-6">
+                <div className="border-b border-border pb-5">
+                  <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Email</p>
+                  <a
+                    href="mailto:getintouch@ecopodbunker.co.za"
+                    className="text-foreground font-light text-lg hover:text-earth-olive transition-colors"
+                  >
+                    getintouch@ecopodbunker.co.za
+                  </a>
+                </div>
+                <div className="border-b border-border pb-5">
+                  <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Phone</p>
+                  <a
+                    href="tel:+27727268775"
+                    className="text-foreground font-light text-lg hover:text-earth-olive transition-colors"
+                  >
+                    +27 72 726 8775
+                  </a>
+                </div>
+                <div className="border-b border-border pb-5">
+                  <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Location</p>
+                  <p className="text-foreground font-light">Klaserie Private Nature Reserve</p>
+                  <p className="text-muted-foreground text-sm">Greater Kruger, Limpopo, South Africa</p>
+                </div>
+              </div>
+
+              <div className="bg-earth-deep/5 border border-border p-6">
+                <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-3">Response Time</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  We respond to all enquiries within 48 hours. For urgent bookings, call directly — we're on the ground in Klaserie.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Contact form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <ContactForm />
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
