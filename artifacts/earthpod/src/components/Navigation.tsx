@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { name: "Design", href: "#design" },
   { name: "Experience", href: "#photography" },
   { name: "Site", href: "#site" },
-  { name: "Sustainability", href: "#sustainability" },
+  { name: "Precedents", href: "#precedents" },
   { name: "Gallery", href: "#gallery" },
 ];
 

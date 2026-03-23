@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { SectionHeader } from "@/components/SectionHeader";
-import { Eye, Sun, Wind, Camera, Bed, Utensils, Map, Leaf } from "lucide-react";
+import { Eye, Sun, Wind, Camera, Bed, Utensils, Map, Leaf, Download, Compass, Lightbulb, Layers } from "lucide-react";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -10,7 +10,7 @@ export default function Home() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  
+
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
@@ -20,39 +20,35 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section id="top" ref={heroRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-earth-deep">
-        <motion.div 
-          style={{ y, opacity }} 
-          className="absolute inset-0 w-full h-full"
-        >
-          {/* Using generated hero image with an overlay for text readability */}
-          <img 
-            src={`${import.meta.env.BASE_URL}images/hero-landscape.png`} 
-            alt="African savanna landscape" 
+        <motion.div style={{ y, opacity }} className="absolute inset-0 w-full h-full">
+          <img
+            src={`${import.meta.env.BASE_URL}images/hero-landscape.png`}
+            alt="African savanna landscape"
             className="w-full h-full object-cover object-center opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
         </motion.div>
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto mt-20">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white mb-6 tracking-tight"
           >
-            Disappear to<br/>see more.
+            Disappear to<br />see more.
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.8 }}
             className="font-sans font-light tracking-wide uppercase text-white/80 text-sm md:text-base max-w-2xl mx-auto"
           >
-            A climate-responsive wildlife observation pod integrated into the African bushveld.
+            A site-integrated, climate-responsive wildlife observation pod that becomes part of the ecosystem.
           </motion.p>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -66,14 +62,24 @@ export default function Home() {
       {/* INTRODUCTION */}
       <section className="py-32 md:py-48 px-6 bg-background relative">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1 }}
             className="font-serif text-3xl md:text-5xl leading-snug md:leading-tight text-foreground"
           >
-            EarthPod™ is not just built on the landscape, <span className="italic text-earth-olive">it becomes the landscape.</span> A masterclass in ecological respect designed for absolute stillness.
+            EarthPod™ is not just built on the landscape,{" "}
+            <span className="italic text-earth-olive">it becomes the landscape.</span> An architectural expression of patience, stillness, and profound ecological respect.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="mt-8 text-muted-foreground text-lg font-light leading-relaxed max-w-2xl mx-auto"
+          >
+            A biome-adapted wildlife hide that disappears into the landscape — designed for Africa, shaped by its climates, and camouflaged by its ecosystems.
           </motion.p>
         </div>
       </section>
@@ -81,14 +87,14 @@ export default function Home() {
       {/* CONCEPT & VISION */}
       <section id="concept" className="py-24 md:py-32 px-6 bg-card relative">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader 
-            number="01" 
-            title="Concept & Vision" 
+          <SectionHeader
+            number="01"
+            title="Concept & Vision"
             subtitle="Architecture that yields to nature."
           />
-          
+
           <div className="grid md:grid-cols-2 gap-16 lg:gap-32 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -101,9 +107,12 @@ export default function Home() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 By sinking the structure into the earth and extending the natural topography over its roof, the pod effectively disappears. This camouflage allows wildlife to approach without fear, offering an unparalleled, intimate connection with the wild.
               </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Each pod grows into its own environment: a green roof seeded with the same plant community as the biome it sits in — from mopaneveld to fynbos. It becomes part of the veld, not a structure imposed upon it.
+              </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -112,7 +121,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-noise opacity-20 mix-blend-multiply" />
               <div className="absolute inset-10 border border-white/20 flex items-center justify-center p-8 text-center">
-                 <p className="font-serif text-2xl text-earth-deep/50 italic">"Stillness is the ultimate luxury."</p>
+                <p className="font-serif text-2xl text-earth-deep/50 italic">"Stillness is the ultimate luxury."</p>
               </div>
             </motion.div>
           </div>
@@ -122,9 +131,9 @@ export default function Home() {
       {/* DESIGN & ARCHITECTURE */}
       <section id="design" className="py-24 md:py-40 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader 
-            number="02" 
-            title="Spatial Layout" 
+          <SectionHeader
+            number="02"
+            title="Spatial Layout"
             subtitle="Programmatic separation for undisturbed observation."
           />
 
@@ -133,20 +142,20 @@ export default function Home() {
               {
                 icon: <Eye className="w-8 h-8 mb-6 text-earth-olive" strokeWidth={1} />,
                 title: "The Viewing Bunker",
-                desc: "A sunken, curved observation deck facing the waterhole. Acoustic baffling and darkened interiors keep observers invisible and silent."
+                desc: "A sunken, curved observation area projecting directly toward the waterhole — creating an immersive, eye-level connection with wildlife while maintaining acoustic, visual, and operational separation from the living spaces.",
               },
               {
                 icon: <Utensils className="w-8 h-8 mb-6 text-earth-olive" strokeWidth={1} />,
                 title: "Social Core",
-                desc: "The central lounge and kitchen act as the transition space, kept functionally separate from the quiet observation zones."
+                desc: "The central lounge and kitchen act as the calm, social heart of the structure — a transition spine that separates the busy programmatic elements from the quiet observation zone.",
               },
               {
                 icon: <Bed className="w-8 h-8 mb-6 text-earth-olive" strokeWidth={1} />,
                 title: "Resting Pods",
-                desc: "Compact, intensely private sleeping quarters situated on the flanks, prioritizing rest with minimal energy footprint."
-              }
+                desc: "Private sleeping pods and compact ablutions recessed to either side. Storage and services are pushed to the rear and edges to minimise disturbance.",
+              },
             ].map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -161,8 +170,51 @@ export default function Home() {
             ))}
           </div>
 
+          {/* Facade Principles */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-20"
+          >
+            <h3 className="font-serif text-2xl text-foreground mb-10 flex items-center gap-4">
+              <span className="text-xs font-mono text-muted-foreground tracking-widest uppercase">Facade Principles</span>
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                {
+                  icon: <Layers className="w-6 h-6 text-earth-olive" strokeWidth={1} />,
+                  title: "Absorbed",
+                  desc: "Roof Biome — indigenous planting dissolves the structure into the surrounding landscape.",
+                },
+                {
+                  icon: <Lightbulb className="w-6 h-6 text-earth-olive" strokeWidth={1} />,
+                  title: "Practical",
+                  desc: "High-level windows for cross-ventilation. Passive cooling in a 35–42°C climate.",
+                },
+                {
+                  icon: <Compass className="w-6 h-6 text-earth-olive" strokeWidth={1} />,
+                  title: "Grounded",
+                  desc: "Human scale. Earth materials. The building feels of the land, not on it.",
+                },
+                {
+                  icon: <Camera className="w-6 h-6 text-earth-olive" strokeWidth={1} />,
+                  title: "View",
+                  desc: "Front-lit, side-lit, and eye-level photography. Every aperture is a considered frame.",
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="border-t border-border pt-6 space-y-3">
+                  {item.icon}
+                  <h4 className="font-sans font-medium text-foreground text-sm tracking-wide uppercase">{item.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
           {/* Plan View Drawing */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -189,15 +241,15 @@ export default function Home() {
       {/* PHOTOGRAPHY EXPERIENCE */}
       <section id="photography" className="py-24 md:py-32 px-6 bg-earth-deep text-white">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader 
-            number="03" 
-            title="The Lens" 
-            subtitle="Engineered for the perfect shot."
+          <SectionHeader
+            number="03"
+            title="The Lens"
+            subtitle="360° solar-oriented. Engineered for the perfect shot."
             dark
           />
 
           <div className="grid md:grid-cols-2 gap-12 mt-16">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -205,14 +257,18 @@ export default function Home() {
             >
               <h3 className="font-serif text-3xl md:text-4xl text-earth-sand">Eye-Level Immersion</h3>
               <p className="text-white/70 leading-relaxed text-lg">
-                By sinking the bunker, photographers are positioned exactly at ground level. This transforms the perspective from looking down on animals to looking them directly in the eye, creating immensely powerful, empathetic imagery.
+                The Eco Bunker's orientation is fundamental to its photographic performance. Facing south allows the northern sun to front-light animals at the waterhole for most of the day, providing soft, even illumination while avoiding harsh silhouettes.
               </p>
-              
+              <p className="text-white/70 leading-relaxed">
+                East- and west-facing viewing panels capture the low-angle morning and afternoon light, enabling golden-hour photography without disturbing wildlife. This strategy ensures high-quality lighting flexibility throughout the day, aligned with animal behaviour.
+              </p>
+
               <ul className="space-y-4 mt-8 pt-8 border-t border-white/10">
                 {[
-                  { icon: <Camera size={20} />, text: "Unobtrusive slit windows" },
-                  { icon: <Sun size={20} />, text: "South-facing for soft, even lighting" },
-                  { icon: <Wind size={20} />, text: "Draft-free design prevents scent carrying" }
+                  { icon: <Camera size={20} />, text: "South-facing: front-lit wildlife photography all day" },
+                  { icon: <Sun size={20} />, text: "East & west panels: golden hour without disturbing wildlife" },
+                  { icon: <Eye size={20} />, text: "Sunken bunker: eye-level perspective with animals" },
+                  { icon: <Wind size={20} />, text: "Draft-free, scent-controlled observation environment" },
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4 text-white/80 font-light">
                     <span className="text-earth-sand">{item.icon}</span>
@@ -222,7 +278,7 @@ export default function Home() {
               </ul>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -235,63 +291,154 @@ export default function Home() {
                 <div className="w-12 h-[1px] bg-earth-sand"></div>
                 <span className="text-xs tracking-widest uppercase text-earth-sand">Wildlife Photographer</span>
               </div>
+
+              {/* Solar orientation diagram */}
+              <div className="mt-10 pt-10 border-t border-white/10 grid grid-cols-3 gap-4 text-center">
+                {[
+                  { dir: "S", label: "Front-lit", sub: "All day" },
+                  { dir: "E", label: "Golden Hour", sub: "Morning" },
+                  { dir: "W", label: "Golden Hour", sub: "Afternoon" },
+                ].map((o) => (
+                  <div key={o.dir} className="space-y-1">
+                    <div className="text-2xl font-serif text-earth-sand">{o.dir}</div>
+                    <div className="text-xs font-medium text-white/80 uppercase tracking-wide">{o.label}</div>
+                    <div className="text-xs text-white/40">{o.sub}</div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* SITE & ENVIRONMENT & SUSTAINABILITY */}
+      {/* SITE & ENVIRONMENT */}
       <section id="site" className="py-24 md:py-40 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
-          
+
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-8">
             <div className="lg:col-span-5 relative">
               <div className="sticky top-32">
-                <SectionHeader 
-                  number="04" 
-                  title="The Site" 
-                  subtitle="Klaserie region, South Africa."
+                <SectionHeader
+                  number="04"
+                  title="The Site"
+                  subtitle="Klaserie, South Africa."
                 />
-                <motion.div 
+
+                {/* Site stats */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="mt-10 space-y-4"
+                >
+                  {[
+                    { label: "Coordinates", value: "24.26° S, 31.22° E" },
+                    { label: "Bedrock", value: "Gneissic — Bushveld" },
+                    { label: "Climate", value: "Hot · 35–42°C" },
+                    { label: "Rainfall", value: "350–550mm annually" },
+                    { label: "Season", value: "Long dry season" },
+                    { label: "Eastgate Airport", value: "±37 km" },
+                    { label: "Hoedspruit Town", value: "±43 km" },
+                  ].map((s) => (
+                    <div key={s.label} className="flex items-baseline justify-between border-b border-border pb-3">
+                      <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">{s.label}</span>
+                      <span className="text-sm font-light text-foreground">{s.value}</span>
+                    </div>
+                  ))}
+                </motion.div>
+
+                <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="hidden lg:block w-full h-[400px] mt-12 bg-earth-stone/10 border border-border relative overflow-hidden"
+                  className="hidden lg:block w-full h-[220px] mt-10 bg-earth-stone/10 border border-border relative overflow-hidden"
                 >
-                  <img 
-                    src={`${import.meta.env.BASE_URL}images/texture-stone.png`} 
-                    alt="Architectural texture" 
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/texture-stone.png`}
+                    alt="Architectural texture"
                     className="w-full h-full object-cover opacity-60 mix-blend-multiply"
                   />
                   <div className="absolute inset-0 flex items-center justify-center p-8">
-                    <Map className="w-12 h-12 text-earth-stone/50" strokeWidth={1} />
+                    <Map className="w-10 h-10 text-earth-stone/50" strokeWidth={1} />
                   </div>
                 </motion.div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 lg:pl-16 space-y-24">
-              <motion.div 
+            <div className="lg:col-span-7 lg:pl-16 space-y-20">
+              {/* Biome description */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
                 <h3 className="font-serif text-3xl mb-6 text-foreground">The Lowveld Biome</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                  Situated in the heart of the bushveld, the site experiences hot climates (35–42°C) and seasonal rainfall. The architecture must respond not just visually, but thermally. 
-                </p>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  Surrounded by grassy savanna, mopane trees, and riverine forests, the area is rich with megafauna—elephants, leopards, and diverse antelope species frequent the adjacent water sources.
+                <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+                  A diverse, drought-tolerant savanna on gneissic bedrock. The Klaserie landscape is defined by four overlapping habitat zones, each supporting distinct wildlife communities.
                 </p>
               </motion.div>
 
+              {/* Wildlife by habitat */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+              >
+                {[
+                  {
+                    habitat: "Trees & Canopy",
+                    icon: "🌳",
+                    wildlife: ["Insects & birdlife", "Elephants", "Leopards"],
+                  },
+                  {
+                    habitat: "Shrubveld",
+                    icon: "🌿",
+                    wildlife: ["Small wildlife", "Birds", "Antelope", "Insects", "Fruit-eating birds"],
+                  },
+                  {
+                    habitat: "Rivers & Water",
+                    icon: "🌊",
+                    wildlife: ["Birdlife", "Water animals", "Antelope", "Insect-eating birds"],
+                  },
+                  {
+                    habitat: "Grassy Savanna",
+                    icon: "🌾",
+                    wildlife: ["Buffalo", "Antelope", "Grass birds", "Insects", "Feline predators"],
+                  },
+                ].map((h, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-card border border-border p-6"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-xl">{h.icon}</span>
+                      <h4 className="font-sans font-medium text-sm uppercase tracking-widest text-foreground">{h.habitat}</h4>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {h.wildlife.map((w) => (
+                        <li key={w} className="text-sm text-muted-foreground flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-earth-olive inline-block" />
+                          {w}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Sustainability */}
               <div id="sustainability">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-4 mb-8">
                     <Leaf className="w-6 h-6 text-earth-olive" />
                     <h3 className="font-serif text-3xl text-foreground">Ecological Integration</h3>
                   </div>
@@ -299,13 +446,19 @@ export default function Home() {
                     <div className="border-l-2 border-earth-olive pl-6">
                       <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Living Roofs</h4>
                       <p className="text-muted-foreground leading-relaxed">
-                        The entire structure is blanketed with a thick layer of local soil seeded with indigenous fynbos and grasses. This provides massive thermal mass, drastically reducing cooling needs while restoring the habitat footprint.
+                        The entire structure is blanketed with local soil seeded with the same plant community as its host biome — mopaneveld, fynbos, or grassy savanna. This provides massive thermal mass, reduces cooling loads, and restores the habitat footprint to near zero.
                       </p>
                     </div>
                     <div className="border-l-2 border-earth-sand pl-6">
                       <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Rammed Earth & Stone</h4>
                       <p className="text-muted-foreground leading-relaxed">
-                        Constructed using materials excavated directly from the site. The walls breathe, regulate humidity, and possess the exact chromatic signature of the surrounding earth.
+                        Constructed using materials excavated directly from the site — gneissic stone and rammed earth walls. They breathe, regulate humidity, and match the exact chromatic signature of the surrounding landscape.
+                      </p>
+                    </div>
+                    <div className="border-l-2 border-earth-stone pl-6">
+                      <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Climate Response</h4>
+                      <p className="text-muted-foreground leading-relaxed">
+                        High-level windows enable cross-ventilation. The sunken form creates natural shade. Evaporative cooling channels use the water channel system to passively cool internal spaces — architecture that listens to the climate rather than fighting it.
                       </p>
                     </div>
                   </div>
@@ -313,16 +466,68 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* PRECEDENTS */}
+      <section id="precedents" className="py-24 md:py-32 px-6 bg-earth-deep text-white">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            number="05"
+            title="Precedents"
+            subtitle="Learning from those who disappeared first."
+            dark
+          />
+
+          <div className="grid md:grid-cols-2 gap-12 mt-16">
+            {[
+              {
+                name: "Lala Limpopo Hide",
+                location: "Zimbabwe",
+                description:
+                  "A low-profile, earth-integrated wildlife viewing shelter on the banks of the Limpopo River, designed to disappear into the riverine landscape. Built with natural materials and a recessed viewing aperture at animal eye-level, the hide provides photographers with an intimate, unobtrusive vantage point while maintaining minimal visual and ecological impact.",
+                finding:
+                  "Spatial hierarchy protects the viewing experience. The layout separates the 'busy' programmatic elements — entry, storage, utilities, circulation — from the 'quiet' zone dedicated to observation. Placing active areas behind the bunker ensures that movement and noise never disturb the primary purpose: stillness, immersion, and unobstructed connection to the landscape.",
+              },
+              {
+                name: "Soroi Photo Hide",
+                location: "Kenya",
+                description:
+                  "A discreet, ground-level wildlife photography hide positioned at a natural waterhole, designed to immerse photographers at eye-level with animals while remaining visually and environmentally unobtrusive within the landscape.",
+                finding:
+                  "The Soroi model demonstrates how programmatic separation — isolating movement, entry, and utilities from the observation core — allows the quiet zone to anchor the entire plan. The primary purpose remains undisturbed: stillness, immersion, and unobstructed connection to the landscape context.",
+              },
+            ].map((p, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: idx * 0.2 }}
+                className="border border-white/10 p-8 md:p-10 space-y-6"
+              >
+                <div>
+                  <span className="text-xs font-mono tracking-widest uppercase text-earth-sand mb-2 block">Precedent {idx + 1}</span>
+                  <h3 className="font-serif text-2xl md:text-3xl text-white">{p.name}</h3>
+                  <span className="text-sm text-white/40 tracking-widest uppercase">{p.location}</span>
+                </div>
+                <p className="text-white/70 leading-relaxed">{p.description}</p>
+                <div className="border-t border-white/10 pt-6">
+                  <span className="text-xs font-mono tracking-widest uppercase text-earth-sand mb-3 block">Findings</span>
+                  <p className="text-white/60 leading-relaxed text-sm italic">{p.finding}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* GALLERY */}
       <section id="gallery" className="py-24 md:py-32 px-6 bg-card">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader 
-            number="05" 
-            title="Visuals" 
+          <SectionHeader
+            number="06"
+            title="Visuals"
             subtitle="Renders and atmospheric perspectives."
           />
 
@@ -359,18 +564,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* DOWNLOAD BOOKLET */}
+      <section className="py-24 md:py-32 px-6 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="border border-border p-12 md:p-20 text-center relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-earth-olive to-transparent" />
+
+            <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-6">Publication · 2026</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
+              EarthPod™ Booklet
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto mb-10">
+              Download the full architectural booklet — concept, site analysis, sun orientation, spatial rationale, precedents, and renders. A complete introduction to EarthPod™ as a biome-integrated wildlife observation pod.
+            </p>
+
+            <a
+              href={`${import.meta.env.BASE_URL}downloads/EarthPod-Eco-Bunker-Booklet-2026.pdf`}
+              download="EarthPod-Eco-Bunker-Booklet-2026.pdf"
+              className="inline-flex items-center gap-3 bg-earth-deep text-white px-10 py-4 font-sans text-sm tracking-widest uppercase hover:bg-earth-olive transition-colors duration-300 group"
+            >
+              <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+              Download Booklet — PDF
+            </a>
+
+            <p className="mt-6 text-xs text-muted-foreground tracking-wide">
+              26.02.2026 · Architectural Magazine · EarthPod™
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-earth-deep text-white py-16 px-6 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-10" />
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           <h2 className="font-serif text-4xl md:text-5xl mb-6">EarthPod<span className="text-lg align-super">™</span></h2>
           <p className="text-white/60 font-light mb-12 max-w-md">Architecture that yields to nature. Designed for stillness, observation, and ecological respect.</p>
-          
+
           <div className="w-full h-[1px] bg-white/10 mb-8" />
-          
+
           <div className="flex flex-col md:flex-row justify-between w-full text-xs tracking-widest uppercase text-white/40">
             <span>© 2026 EarthPod Eco Bunker</span>
-            <span className="mt-4 md:mt-0">Klaserie, South Africa</span>
+            <span className="mt-4 md:mt-0">24.26° S, 31.22° E · Klaserie, South Africa</span>
           </div>
         </div>
       </footer>
