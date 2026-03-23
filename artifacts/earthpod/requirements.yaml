@@ -1,0 +1,17 @@
+packages:
+  "framer-motion": "For elegant, smooth scroll animations and page transitions essential for a luxury feel"
+  "clsx": "For conditional class names"
+  "tailwind-merge": "For merging tailwind classes"
+
+images:
+  - path: "artifacts/earthpod/public/images/hero-landscape.png"
+    description: "Moody, cinematic African savanna landscape at dusk, very subtle, dark earthy tones, minimal, blurred and abstract enough to be a background for white text"
+    aspect_ratio: "16:9"
+  - path: "artifacts/earthpod/public/images/texture-stone.png"
+    description: "Minimalist concrete or rammed earth texture, warm stone grey and sand tones, architectural feel, soft lighting, empty, abstract"
+    aspect_ratio: "16:9"
+
+notes:
+  - Static single-page application with smooth scrolling
+  - No backend or API calls required
+  - Using framer-motion for scroll-triggered reveal animations
