@@ -10,9 +10,15 @@ export default function Home() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const lionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: lionScroll } = useScroll({
+    target: lionRef,
+    offset: ["start end", "end start"],
+  });
+  const lionY = useTransform(lionScroll, [0, 1], ["-20%", "20%"]);
 
   return (
     <div className="bg-background min-h-screen selection:bg-earth-olive selection:text-white overflow-hidden">
@@ -58,6 +64,24 @@ export default function Home() {
           <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent" />
         </motion.div>
       </section>
+
+      {/* LION'S EYE PARALLAX */}
+      <div
+        ref={lionRef}
+        className="relative w-full overflow-hidden"
+        style={{ height: "60vh" }}
+      >
+        <motion.div
+          style={{ y: lionY, top: "-20%", bottom: "-20%", position: "absolute", left: 0, right: 0 }}
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}images/lions-eye.jpg`}
+            alt="Lion's eyes — eye-level with the wild"
+            className="w-full h-full object-cover object-center"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+      </div>
 
       {/* INTRODUCTION */}
       <section className="py-32 md:py-48 px-6 bg-background relative">
@@ -113,16 +137,17 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1 }}
-              className="relative aspect-square md:aspect-[4/5] bg-gradient-to-br from-earth-stone to-earth-olive/30 overflow-hidden"
+              className="relative aspect-square md:aspect-[4/5] overflow-hidden"
             >
-              <div className="absolute inset-0 bg-noise opacity-20 mix-blend-multiply" />
-              <div className="absolute inset-10 border border-white/20 flex items-center justify-center p-8 text-center">
-                <p className="font-serif text-2xl text-earth-deep/50 italic">"Stillness is the ultimate luxury."</p>
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}images/sketch-render.png`}
+                alt="EarthPod architectural sketch — watercolour render"
+                className="w-full h-full object-cover object-center"
+              />
             </motion.div>
           </div>
         </div>
