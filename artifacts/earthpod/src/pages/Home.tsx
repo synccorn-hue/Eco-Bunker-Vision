@@ -328,25 +328,30 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-16">
             {[
-              { label: "Exterior Integration", color: "from-earth-olive/80 to-earth-deep" },
-              { label: "Central Lounge", color: "from-earth-sand to-earth-stone" },
-              { label: "Viewing Bunker", color: "from-earth-deep to-black" },
-              { label: "Living Roof Details", color: "from-earth-olive/60 to-earth-stone" },
-              { label: "Waterhole at Dusk", color: "from-[#8B5A2B] to-earth-deep" },
-              { label: "Elephant Approach", color: "from-earth-stone to-earth-stone/50" }
+              { label: "Safari at Golden Hour", src: "gallery-safari-sunset.jpg" },
+              { label: "Waterside Integration", src: "gallery-waterside-lodge.png" },
+              { label: "Photographer in the Bunker", src: "gallery-photographer-bunker.png" },
+              { label: "Earth-Integrated Exterior", src: "gallery-eco-lodge-savanna.png" },
+              { label: "Curved Lodge at Waterhole", src: "gallery-curved-lodge-waterhole.png" },
+              { label: "Boma Lounge at Dusk", src: "gallery-boma-lounge.png" },
+              { label: "Bunker Under the Stars", src: "gallery-bunker-night.png" },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative aspect-[4/3] overflow-hidden group cursor-pointer`}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                className="relative aspect-[4/3] overflow-hidden group cursor-pointer"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} transition-transform duration-700 group-hover:scale-105`} />
-                <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay" />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px]">
-                  <span className="text-white font-serif text-xl tracking-wide px-6 text-center">{item.label}</span>
+                <img
+                  src={`${import.meta.env.BASE_URL}images/${item.src}`}
+                  alt={item.label}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="text-white font-serif text-lg tracking-wide drop-shadow-lg">{item.label}</span>
                 </div>
               </motion.div>
             ))}
