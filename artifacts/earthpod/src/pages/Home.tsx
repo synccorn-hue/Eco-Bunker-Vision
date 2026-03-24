@@ -69,8 +69,7 @@ export default function Home() {
       {/* LION'S EYE PARALLAX */}
       <div
         ref={lionRef}
-        className="relative w-full overflow-hidden"
-        style={{ height: "55vh", minHeight: 280 }}
+        className="relative w-full overflow-hidden aspect-[2/1] md:aspect-auto md:h-[55vh]"
       >
         <motion.div
           style={{ y: lionY, position: "absolute", top: "-20%", bottom: "-20%", left: 0, right: 0, willChange: "transform" }}
