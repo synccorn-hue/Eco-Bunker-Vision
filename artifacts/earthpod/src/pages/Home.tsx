@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ContactForm } from "@/components/ContactForm";
-import { Eye, Sun, Wind, Camera, Bed, Utensils, Map, Leaf, Download, Compass, Lightbulb, Layers } from "lucide-react";
+import { Eye, Sun, Wind, Camera, Bed, Utensils, Map, Leaf, Download, Compass, Lightbulb, Layers, Instagram, Globe } from "lucide-react";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -51,7 +51,7 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.8 }}
             className="font-sans font-light tracking-wide uppercase text-white/80 text-sm md:text-base max-w-2xl mx-auto"
           >
-            A site-integrated, climate-responsive wildlife observation pod that becomes part of the ecosystem.
+            A biome-integrated wildlife hide system designed to disappear into the landscape.
           </motion.p>
         </div>
 
@@ -94,8 +94,8 @@ export default function Home() {
             transition={{ duration: 1 }}
             className="font-serif text-3xl md:text-5xl leading-snug md:leading-tight text-foreground"
           >
-            EarthPod™ is not just built on the landscape,{" "}
-            <span className="italic text-earth-olive">it becomes the landscape.</span> An architectural expression of patience, stillness, and profound ecological respect.
+            Ubuntu Reflections<span className="text-lg align-super">™</span> is not just built on the landscape,{" "}
+            <span className="italic text-earth-olive">it becomes the landscape.</span> A quiet interface between human presence and natural behaviour.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -104,8 +104,81 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.2 }}
             className="mt-8 text-muted-foreground text-lg font-light leading-relaxed max-w-2xl mx-auto"
           >
-            A biome-adapted wildlife hide that disappears into the landscape — designed for Africa, shaped by its climates, and camouflaged by its ecosystems.
+            This is not architecture imposed on nature. It is architecture absorbed by it — allowing wildlife to move freely, undisturbed, while creating a space of profound ecological respect.
           </motion.p>
+        </div>
+      </section>
+
+      {/* CREATOR'S VISION */}
+      <section className="py-0 md:py-0 px-6 bg-earth-deep text-white">
+        <div className="max-w-5xl mx-auto py-24 md:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
+            className="text-center"
+          >
+            <blockquote className="font-serif text-2xl md:text-4xl leading-snug text-white/90 italic mb-10 max-w-3xl mx-auto">
+              "Ubuntu Reflections<span className="not-italic text-sm align-super">™</span> is a biome-integrated wildlife hide system designed to disappear into the landscape. It creates a quiet interface between human presence and natural behaviour — allowing wildlife to move freely, undisturbed."
+            </blockquote>
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-12 h-[1px] bg-earth-sand" />
+              <span className="text-xs tracking-widest uppercase text-earth-sand">Sean Koekemoer — Wildlife Enthusiast &amp; Photographer</span>
+              <div className="w-12 h-[1px] bg-earth-sand" />
+            </div>
+            <p className="mt-8 text-white/50 font-light text-sm max-w-2xl mx-auto leading-relaxed">
+              Over more than fifteen years, this concept has been shaped through observation, patience, and continuous refinement. Every element has been considered, tested, and aligned — not only to create a place of comfort, but to establish a fully integrated natural environment.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* THE ANIMALS */}
+      <section className="py-24 md:py-32 px-6 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            number="00"
+            title="The Animals"
+            subtitle="Biodiversity is what makes Ubuntu Reflections™ come alive."
+          />
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center mt-16">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our fellow enthusiasts all share one thing in common — the love for the animals. Our footprint whilst establishing Eco Bunker sites is our utmost priority.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We strive to see every species thrive in their given environment, and therefore our intention is to integrate and disappear rather than maximise our human presence.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Capturing an image of these moments in nature is timeless. The wild behaves as it always has — unaware, uninterrupted, and astonishingly close.
+              </p>
+              <div className="border-t border-border pt-6">
+                <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-1">Photography</p>
+                <p className="text-sm text-foreground font-light">Photos by Sean Koekemoer</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1 }}
+              className="relative aspect-[4/3] md:aspect-[4/5] overflow-hidden"
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}images/gallery-photographer-bunker.png`}
+                alt="Wildlife photographer in the Eco Bunker — eye-level with nature"
+                className="w-full h-full object-cover object-center"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -127,14 +200,20 @@ export default function Home() {
               className="space-y-8"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                The philosophy behind EarthPod™ is rooted in absolute minimal disturbance. Traditional lodges elevate guests above the landscape, separating them from the environment. We chose the opposite approach.
+                The philosophy behind Ubuntu Reflections™ is rooted in absolute minimal disturbance. Traditional lodges elevate guests above the landscape, separating them from the environment. We chose the opposite approach.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                By sinking the structure into the earth and extending the natural topography over its roof, the pod effectively disappears. This camouflage allows wildlife to approach without fear, offering an unparalleled, intimate connection with the wild.
+                By sinking the structure into the earth and extending the natural topography over its roof, the Eco Bunker effectively disappears. This camouflage allows wildlife to approach without fear, offering an unparalleled, intimate connection with the wild.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Each pod grows into its own environment: a green roof seeded with the same plant community as the biome it sits in — from mopaneveld to fynbos. It becomes part of the veld, not a structure imposed upon it.
+                It is a living ecosystem — crafted to bring people closer to nature without disturbing it. A space where silence is respected, where presence replaces distraction, where photographers, observers, and nature lovers become part of the environment they came to experience.
               </p>
+              <div className="pt-4 border-t border-border">
+                <p className="text-sm italic text-muted-foreground font-serif text-xl leading-snug">
+                  "To create a place where nature leads, and everything else follows."
+                </p>
+                <p className="mt-3 text-xs font-mono tracking-widest uppercase text-muted-foreground">Sean Koekemoer</p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -146,7 +225,7 @@ export default function Home() {
             >
               <img
                 src={`${import.meta.env.BASE_URL}images/sketch-render.png`}
-                alt="EarthPod architectural sketch — watercolour render"
+                alt="Ubuntu Reflections architectural sketch — watercolour render"
                 className="w-full h-full object-cover object-center"
               />
             </motion.div>
@@ -154,8 +233,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* THE ECOSYSTEM */}
+      <section className="py-24 md:py-32 px-6 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            number="01b"
+            title="The Ecosystems"
+            subtitle="This is not landscaping. It is ecosystem design."
+          />
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center mt-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative aspect-[4/3] overflow-hidden order-2 md:order-1"
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}images/gallery-eco-lodge-savanna.png`}
+                alt="Eco Bunker integrated into the African savanna"
+                className="w-full h-full object-cover object-center"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6 order-1 md:order-2"
+            >
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                The ecosystem is a community of living organisms that interact with each other and their physical environment. These interactions create a complex web of relationships where energy and nutrients flow between different components.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Between each Eco Bunker, 25 different Aloe species form living boundaries. These attract pollinators, insects, and birdlife — forming the base of a natural food chain.
+              </p>
+              <div className="space-y-4 pt-4">
+                {[
+                  { label: "25 Aloe Species", desc: "Living boundaries between bunkers attract pollinators, insects, and birdlife." },
+                  { label: "Indigenous Trees", desc: "Introduce nesting, shade, and seasonal variation throughout the site." },
+                  { label: "Bee-Eater Clay Banks", desc: "Clay construction walls provide adequate shelter for bee-eaters within the structure itself." },
+                ].map((item) => (
+                  <div key={item.label} className="border-l-2 border-earth-olive pl-5">
+                    <h4 className="font-sans font-medium text-foreground text-sm uppercase tracking-widest mb-1">{item.label}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* DESIGN & ARCHITECTURE */}
-      <section id="design" className="py-24 md:py-40 px-6 bg-background">
+      <section id="design" className="py-24 md:py-40 px-6 bg-card">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             number="02"
@@ -187,7 +318,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="bg-card p-10 group hover:shadow-xl transition-all duration-500 border border-transparent hover:border-earth-sand/30"
+                className="bg-background p-10 group hover:shadow-xl transition-all duration-500 border border-transparent hover:border-earth-sand/30"
               >
                 {item.icon}
                 <h3 className="text-xl font-serif mb-4 text-foreground">{item.title}</h3>
@@ -247,11 +378,11 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.4 }}
             className="mt-20 relative"
           >
-            <div className="absolute top-4 left-4 z-10 text-xs font-mono text-muted-foreground tracking-widest uppercase">Fig 1. Plan View & Section</div>
+            <div className="absolute top-4 left-4 z-10 text-xs font-mono text-muted-foreground tracking-widest uppercase">Fig 1. Plan View &amp; Section</div>
             <div className="w-full border border-border overflow-hidden bg-[#f5f0e8]">
               <img
                 src={`${import.meta.env.BASE_URL}images/plan-view.png`}
-                alt="EarthPod architectural plan view and section drawing showing circular layout with boma, living areas, photography bunker, and waterhole"
+                alt="Ubuntu Reflections architectural plan view and section drawing showing circular layout with boma, living areas, photography bunker, and waterhole"
                 className="w-full h-auto object-contain max-h-[80vh]"
               />
             </div>
@@ -286,7 +417,7 @@ export default function Home() {
                 The Eco Bunker's orientation is fundamental to its photographic performance. Facing south allows the northern sun to front-light animals at the waterhole for most of the day, providing soft, even illumination while avoiding harsh silhouettes.
               </p>
               <p className="text-white/70 leading-relaxed">
-                East- and west-facing viewing panels capture the low-angle morning and afternoon light, enabling golden-hour photography without disturbing wildlife. This strategy ensures high-quality lighting flexibility throughout the day, aligned with animal behaviour.
+                East- and west-facing viewing panels capture the low-angle morning and afternoon light, enabling golden-hour photography without disturbing wildlife. Together, this strategy ensures high-quality lighting flexibility throughout the day, aligned with animal behaviour.
               </p>
 
               <ul className="space-y-4 mt-8 pt-8 border-t border-white/10">
@@ -302,6 +433,11 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+
+              <div className="pt-4 border-t border-white/10">
+                <p className="text-xs font-mono tracking-widest uppercase text-white/40 mb-1">Photography</p>
+                <p className="text-sm text-white/60 font-light">Photos by Sean Koekemoer</p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -311,11 +447,11 @@ export default function Home() {
               className="bg-gradient-to-br from-[#2A1E15] to-[#1A120C] p-8 md:p-12 border border-white/5 flex flex-col justify-center"
             >
               <blockquote className="font-serif text-2xl md:text-3xl leading-snug text-white/90 italic mb-8">
-                "The golden hour light spills across the waterhole, hitting the east panels perfectly. The elephants don't even know we are here."
+                "Designed to disappear into its surroundings, the bunker offers absolute immersion with absolute respect for nature — no disruption, no staged encounters. Time slows. Senses heighten."
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-[1px] bg-earth-sand"></div>
-                <span className="text-xs tracking-widest uppercase text-earth-sand">Wildlife Photographer</span>
+                <span className="text-xs tracking-widest uppercase text-earth-sand">Disappearing to see more</span>
               </div>
 
               {/* Solar orientation diagram */}
@@ -397,19 +533,19 @@ export default function Home() {
                   className="mt-8 pt-8 border-t border-border"
                 >
                   <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Publication · 2026</p>
-                  <h4 className="font-serif text-xl text-foreground mb-2">EarthPod™ Booklet</h4>
+                  <h4 className="font-serif text-xl text-foreground mb-2">Ubuntu Reflections™ Booklet</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                    Download the full architectural booklet — concept, site analysis, sun orientation, spatial rationale, precedents, and renders.
+                    Download the full architectural booklet — concept, site analysis, sun orientation, spatial rationale, precedents, and renders. A complete introduction to Ubuntu Reflections™ as a biome-integrated wildlife observation system.
                   </p>
                   <a
-                    href={`${import.meta.env.BASE_URL}downloads/EarthPod-Eco-Bunker-Booklet-2026.pdf`}
-                    download="EarthPod-Eco-Bunker-Booklet-2026.pdf"
+                    href={`${import.meta.env.BASE_URL}downloads/Ubuntu-Reflections-Booklet-2026.pdf`}
+                    download="Ubuntu-Reflections-Booklet-2026.pdf"
                     className="inline-flex items-center gap-2 bg-earth-deep text-white px-6 py-3 font-sans text-xs tracking-widest uppercase hover:bg-earth-olive transition-colors duration-300 group"
                   >
                     <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
-                    Download — PDF
+                    Download Booklet — PDF
                   </a>
-                  <p className="mt-3 text-xs text-muted-foreground/60 tracking-wide">26.02.2026 · Architectural Magazine</p>
+                  <p className="mt-3 text-xs text-muted-foreground/60 tracking-wide">26.02.2026 · Architectural Magazine · Ubuntu Reflections™</p>
                 </motion.div>
               </div>
             </div>
@@ -510,6 +646,12 @@ export default function Home() {
                         High-level windows enable cross-ventilation. The sunken form creates natural shade. Evaporative cooling channels use the water channel system to passively cool internal spaces — architecture that listens to the climate rather than fighting it.
                       </p>
                     </div>
+                    <div className="border-l-2 border-earth-olive pl-6">
+                      <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Natural Water Purification</h4>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Subtle integration of bee-eater clay banks that conceal and support natural water purification systems — every detail exists with purpose, from the positioning of each structure for optimal light, to the stillness of reflection water engineered for undisturbed imagery.
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -575,14 +717,82 @@ export default function Home() {
         </div>
       </section>
 
+      {/* THE DEVELOPERS */}
+      <section className="py-24 md:py-32 px-6 bg-earth-deep text-white">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            number="04b"
+            title="The Developers"
+            subtitle="Dynamic Construction Consulting (PTY) Ltd"
+            dark
+          />
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center mt-16">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <p className="text-white/70 leading-relaxed text-lg">
+                Dynamic Construction Consulting (PTY) Ltd is the team that made everything possible. From the architectural concept to its structural viability, to the cost engineering and project feasibility — DCC is a profound team of professional consultants that maximised their inputs and efforts to make the vision come alive.
+              </p>
+              <p className="text-white/70 leading-relaxed">
+                With a vast variety of experience underpinning the result, Ubuntu Reflections™ delivers a truly unique product to the global market — accommodating wildlife enthusiasts and photographers who seek a space where the interaction between nature and humans is up close and personal.
+              </p>
+              <div className="pt-6 border-t border-white/10">
+                <p className="text-xs font-mono tracking-widest uppercase text-white/40 mb-4">In collaboration with</p>
+                <div className="flex flex-wrap gap-6 items-center">
+                  <a href="https://dcc-consulting.co.za/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src={`${import.meta.env.BASE_URL}images/logo-dcc.png`} alt="DCC Consulting" className="h-10 w-auto object-contain" />
+                  </a>
+                  <a href="https://allofarch.com/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src={`${import.meta.env.BASE_URL}images/logo-aoa.jpg`} alt="AOA — All of Architecture" className="h-10 w-auto object-contain rounded-sm" />
+                  </a>
+                  <a href="https://www.huizemark.com/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
+                    <img src={`${import.meta.env.BASE_URL}images/logo-huizemark.png`} alt="Huizemark" className="h-10 w-auto object-contain" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-[#2A1E15] to-[#1A120C] border border-white/5 p-8 md:p-12 space-y-8"
+            >
+              <div className="space-y-2">
+                <p className="text-xs font-mono tracking-widest uppercase text-earth-sand">A Unique Profitable Business Model</p>
+                <h3 className="font-serif text-2xl md:text-3xl text-white">Built for those who seek more</h3>
+              </div>
+              <p className="text-white/60 leading-relaxed">
+                Ubuntu Reflections™ accommodates global wildlife enthusiasts and photographers who seek a space where the interaction between nature and humans is up close and personal — while establishing a sound and unique investment opportunity in the heart of one of Africa's premier conservation zones.
+              </p>
+              <div className="border-t border-white/10 pt-8 space-y-4">
+                {[
+                  "Biome-integrated design with zero ecological footprint",
+                  "Multiple revenue streams: photography, eco-tourism, education",
+                  "Positioned in the Greater Kruger ecosystem",
+                  "Scalable — each Eco Bunker site is independently viable",
+                ].map((point, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-earth-sand mt-2 shrink-0" />
+                    <p className="text-white/70 text-sm leading-relaxed">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* PRECEDENTS */}
-      <section id="precedents" className="py-24 md:py-32 px-6 bg-earth-deep text-white">
+      <section id="precedents" className="py-24 md:py-32 px-6 bg-card">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             number="05"
             title="Precedents"
             subtitle="Learning from those who disappeared first."
-            dark
           />
 
           <div className="grid md:grid-cols-2 gap-12 mt-16">
@@ -610,17 +820,17 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: idx * 0.2 }}
-                className="border border-white/10 p-8 md:p-10 space-y-6"
+                className="border border-border p-8 md:p-10 space-y-6"
               >
                 <div>
-                  <span className="text-xs font-mono tracking-widest uppercase text-earth-sand mb-2 block">Precedent {idx + 1}</span>
-                  <h3 className="font-serif text-2xl md:text-3xl text-white">{p.name}</h3>
-                  <span className="text-sm text-white/40 tracking-widest uppercase">{p.location}</span>
+                  <span className="text-xs font-mono tracking-widest uppercase text-earth-olive mb-2 block">Precedent {idx + 1}</span>
+                  <h3 className="font-serif text-2xl md:text-3xl text-foreground">{p.name}</h3>
+                  <span className="text-sm text-muted-foreground tracking-widest uppercase">{p.location}</span>
                 </div>
-                <p className="text-white/70 leading-relaxed">{p.description}</p>
-                <div className="border-t border-white/10 pt-6">
-                  <span className="text-xs font-mono tracking-widest uppercase text-earth-sand mb-3 block">Findings</span>
-                  <p className="text-white/60 leading-relaxed text-sm italic">{p.finding}</p>
+                <p className="text-muted-foreground leading-relaxed">{p.description}</p>
+                <div className="border-t border-border pt-6">
+                  <span className="text-xs font-mono tracking-widest uppercase text-earth-olive mb-3 block">Findings</span>
+                  <p className="text-muted-foreground leading-relaxed text-sm italic">{p.finding}</p>
                 </div>
               </motion.div>
             ))}
@@ -629,7 +839,7 @@ export default function Home() {
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="py-24 md:py-32 px-6 bg-card">
+      <section id="gallery" className="py-24 md:py-32 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             number="06"
@@ -667,6 +877,17 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-10 text-center"
+          >
+            <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground">
+              Photography by Sean Koekemoer
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -691,7 +912,7 @@ export default function Home() {
               <div>
                 <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">Arrange a Private Viewing</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Whether you're a wildlife photographer, investor, or nature enthusiast, we'd love to show you EarthPod™. Reach out to schedule a site visit or to find out more about the project.
+                  Whether you're a wildlife photographer, investor, or nature enthusiast, we'd love to show you Ubuntu Reflections™. Reach out to schedule a site visit or to find out more about the project.
                 </p>
               </div>
 
@@ -699,10 +920,10 @@ export default function Home() {
                 <div className="border-b border-border pb-5">
                   <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Email</p>
                   <a
-                    href="mailto:getintouch@ecopodbunker.co.za"
-                    className="text-foreground font-light text-lg hover:text-earth-olive transition-colors"
+                    href="mailto:info@ubuntu-reflections.co.za"
+                    className="text-foreground font-light text-lg hover:text-earth-olive transition-colors break-all"
                   >
-                    getintouch@ecopodbunker.co.za
+                    info@ubuntu-reflections.co.za
                   </a>
                 </div>
                 <div className="border-b border-border pb-5">
@@ -712,6 +933,30 @@ export default function Home() {
                     className="text-foreground font-light text-lg hover:text-earth-olive transition-colors"
                   >
                     +27 72 726 8775
+                  </a>
+                </div>
+                <div className="border-b border-border pb-5">
+                  <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Website</p>
+                  <a
+                    href="https://www.ubuntu-reflections.co.za"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground font-light text-lg hover:text-earth-olive transition-colors flex items-center gap-2"
+                  >
+                    <Globe className="w-4 h-4" />
+                    www.ubuntu-reflections.co.za
+                  </a>
+                </div>
+                <div className="border-b border-border pb-5">
+                  <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">Instagram</p>
+                  <a
+                    href="https://www.instagram.com/ubuntubunkers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground font-light text-lg hover:text-earth-olive transition-colors flex items-center gap-2"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    @ubuntubunkers
                   </a>
                 </div>
                 <div className="border-b border-border pb-5">
@@ -748,8 +993,29 @@ export default function Home() {
 
         {/* Top footer content */}
         <div className="relative z-10 max-w-4xl mx-auto px-6 pt-16 pb-10 flex flex-col items-center text-center">
-          <h2 className="font-serif text-4xl md:text-5xl mb-6">EarthPod<span className="text-lg align-super">™</span></h2>
-          <p className="text-white/60 font-light max-w-md">Architecture that yields to nature. Designed for stillness, observation, and ecological respect.</p>
+          <h2 className="font-serif text-4xl md:text-5xl mb-4">Ubuntu Reflections<span className="text-lg align-super">™</span></h2>
+          <p className="text-white/60 font-light max-w-md mb-6">Architecture absorbed by nature. Designed for stillness, observation, and ecological respect.</p>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://www.instagram.com/ubuntubunkers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-xs tracking-widest uppercase"
+            >
+              <Instagram className="w-4 h-4" />
+              @ubuntubunkers
+            </a>
+            <span className="text-white/20">·</span>
+            <a
+              href="https://www.ubuntu-reflections.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-xs tracking-widest uppercase"
+            >
+              <Globe className="w-4 h-4" />
+              ubuntu-reflections.co.za
+            </a>
+          </div>
         </div>
 
         {/* Partner logos — full-width black band */}
@@ -793,7 +1059,7 @@ export default function Home() {
             >
               <img
                 src={`${import.meta.env.BASE_URL}images/logo-dcc.png`}
-                alt="DCC Consulting"
+                alt="DCC — Dynamic Construction Consulting"
                 className="h-14 w-auto object-contain rounded-sm"
               />
               <span className="text-xs tracking-widest uppercase text-white/40 font-light">DCC Consulting</span>
@@ -806,7 +1072,7 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 py-6">
           <div className="w-full h-[1px] bg-white/10 mb-6" />
           <div className="flex flex-col md:flex-row justify-between text-xs tracking-widest uppercase text-white/40">
-            <span>© 2026 EarthPod Eco Bunker</span>
+            <span>© 2026 Ubuntu Reflections™ — Eco Bunker Wildlife Hide</span>
             <span className="mt-4 md:mt-0">24.26° S, 31.22° E · Klaserie, South Africa</span>
           </div>
         </div>

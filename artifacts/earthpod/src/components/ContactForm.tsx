@@ -36,13 +36,13 @@ export function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(
-      `EarthPod Enquiry — ${form.inquiry || "General"}`
+      `Ubuntu Reflections Enquiry — ${form.inquiry || "General"}`
     );
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || "—"}\nEnquiry Type: ${form.inquiry}\n\nMessage:\n${form.message}`
     );
     window.open(
-      `mailto:getintouch@ecopodbunker.co.za?subject=${subject}&body=${body}`,
+      `mailto:info@ubuntu-reflections.co.za?subject=${subject}&body=${body}`,
       "_blank"
     );
     setSubmitted(true);

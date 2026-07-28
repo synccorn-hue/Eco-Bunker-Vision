@@ -51,11 +51,11 @@ export function Navigation() {
             href="#top"
             onClick={handleLinkClick}
             className={cn(
-              "font-serif text-xl md:text-2xl tracking-wider transition-colors duration-300",
+              "font-serif text-lg md:text-xl tracking-wider transition-colors duration-300 leading-tight",
               isScrolled || mobileOpen ? "text-foreground" : "text-white"
             )}
           >
-            EarthPod<span className="text-xs align-super">™</span>
+            Ubuntu Reflections<span className="text-xs align-super">™</span>
           </a>
 
           {/* Desktop Nav */}
@@ -123,11 +123,14 @@ export function Navigation() {
               className="mt-auto space-y-1"
             >
               <p className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Get in touch</p>
-              <a href="mailto:getintouch@ecopodbunker.co.za" className="block text-sm text-foreground/70 hover:text-foreground transition-colors">
-                getintouch@ecopodbunker.co.za
+              <a href="mailto:info@ubuntu-reflections.co.za" className="block text-sm text-foreground/70 hover:text-foreground transition-colors">
+                info@ubuntu-reflections.co.za
               </a>
               <a href="tel:+27727268775" className="block text-sm text-foreground/70 hover:text-foreground transition-colors">
                 +27 72 726 8775
+              </a>
+              <a href="https://www.instagram.com/ubuntubunkers" target="_blank" rel="noopener noreferrer" className="block text-sm text-foreground/70 hover:text-foreground transition-colors">
+                @ubuntubunkers
               </a>
             </motion.div>
           </motion.div>
