@@ -48,8 +48,16 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.8 }}
-            className="font-sans font-light tracking-wide uppercase text-white/80 text-sm md:text-base max-w-2xl mx-auto"
+            transition={{ duration: 1.2, delay: 0.6 }}
+            className="font-serif italic text-white/50 text-base md:text-lg mb-4"
+          >
+            The Tale of Ubuntu Reflections
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.9 }}
+            className="font-sans font-light tracking-wide uppercase text-white/70 text-xs md:text-sm max-w-2xl mx-auto"
           >
             A biome-integrated wildlife hide system designed to disappear into the landscape.
           </motion.p>
@@ -128,7 +136,13 @@ export default function Home() {
               <div className="w-12 h-[1px] bg-earth-sand" />
             </div>
             <p className="mt-8 text-white/50 font-light text-sm max-w-2xl mx-auto leading-relaxed">
-              Over more than fifteen years, this concept has been shaped through observation, patience, and continuous refinement. Every element has been considered, tested, and aligned — not only to create a place of comfort, but to establish a fully integrated natural environment.
+              Over more than fifteen years, this concept has been shaped through observation, patience, and continuous refinement. Every element has been considered, tested, and aligned — not only to create a place of comfort, but to establish a fully integrated natural environment. From the positioning of each structure for optimal light, to the stillness of reflection water engineered for undisturbed imagery. From vegetation carefully studied and established to attract birdlife and wildlife, to the subtle integration of bee-eater clay banks that conceal and support natural water purification systems.
+            </p>
+            <p className="mt-6 text-white/40 font-light text-sm max-w-xl mx-auto leading-relaxed italic">
+              Every detail exists with purpose.
+            </p>
+            <p className="mt-8 text-white/30 font-sans text-xs tracking-widest uppercase max-w-xl mx-auto">
+              A considered vision. A refined reality. A place to truly connect.
             </p>
           </motion.div>
         </div>
@@ -447,8 +461,11 @@ export default function Home() {
               className="bg-gradient-to-br from-[#2A1E15] to-[#1A120C] p-8 md:p-12 border border-white/5 flex flex-col justify-center"
             >
               <blockquote className="font-serif text-2xl md:text-3xl leading-snug text-white/90 italic mb-8">
-                "Designed to disappear into its surroundings, the bunker offers absolute immersion with absolute respect for nature — no disruption, no staged encounters. Time slows. Senses heighten."
+                "Designed to disappear into its surroundings, the bunker offers absolute immersion with absolute respect for nature — no disruption, no staged encounters, no barriers except trustingly hidden glass. Time slows. Senses heighten. The wild behaves as it always has."
               </blockquote>
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                This is a rare privilege to observe the natural world as it truly is — unaware, uninterrupted, and astonishingly close.
+              </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-[1px] bg-earth-sand"></div>
                 <span className="text-xs tracking-widest uppercase text-earth-sand">Disappearing to see more</span>
@@ -861,7 +878,7 @@ export default function Home() {
           <SectionHeader
             number="06"
             title="Visuals"
-            subtitle="Renders and atmospheric perspectives."
+            subtitle="Exterior & atmosphere — a wildlife observation system integrated into the African landscape."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-16">
