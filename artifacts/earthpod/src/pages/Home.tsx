@@ -72,12 +72,12 @@ export default function Home() {
         className="relative w-full overflow-hidden aspect-[2/1] md:aspect-auto md:h-[55vh]"
       >
         <motion.div
-          style={{ y: lionY, position: "absolute", top: "-20%", bottom: "-20%", left: 0, right: 0, willChange: "transform" }}
+          style={{ y: lionY, willChange: "transform", position: "absolute", top: "-20%", left: 0, right: 0, height: "140%" }}
         >
           <img
             src={`${import.meta.env.BASE_URL}images/lions-eye.jpg`}
             alt="Lion's eyes — eye-level with the wild"
-            className="w-full h-full object-cover object-center"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
             loading="eager"
           />
         </motion.div>
@@ -571,26 +571,10 @@ export default function Home() {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-6"
               >
                 {[
-                  {
-                    habitat: "Trees & Canopy",
-                    icon: "🌳",
-                    wildlife: ["Insects & birdlife", "Elephants", "Leopards"],
-                  },
-                  {
-                    habitat: "Shrubveld",
-                    icon: "🌿",
-                    wildlife: ["Small wildlife", "Birds", "Antelope", "Insects", "Fruit-eating birds"],
-                  },
-                  {
-                    habitat: "Rivers & Water",
-                    icon: "🌊",
-                    wildlife: ["Birdlife", "Water animals", "Antelope", "Insect-eating birds"],
-                  },
-                  {
-                    habitat: "Grassy Savanna",
-                    icon: "🌾",
-                    wildlife: ["Buffalo", "Antelope", "Grass birds", "Insects", "Feline predators"],
-                  },
+                  { habitat: "Trees & Canopy", icon: "🌳", wildlife: ["Insects & birdlife", "Elephants", "Leopards"] },
+                  { habitat: "Shrubveld", icon: "🌿", wildlife: ["Small wildlife", "Birds", "Antelope", "Insects", "Fruit-eating birds"] },
+                  { habitat: "Rivers & Water", icon: "🌊", wildlife: ["Birdlife", "Water animals", "Antelope", "Insect-eating birds"] },
+                  { habitat: "Grassy Savanna", icon: "🌾", wildlife: ["Buffalo", "Antelope", "Grass birds", "Insects", "Feline predators"] },
                 ].map((h, idx) => (
                   <motion.div
                     key={idx}
@@ -615,104 +599,137 @@ export default function Home() {
                   </motion.div>
                 ))}
               </motion.div>
-
-              {/* Sustainability */}
-              <div id="sustainability">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex items-center gap-4 mb-8">
-                    <Leaf className="w-6 h-6 text-earth-olive" />
-                    <h3 className="font-serif text-3xl text-foreground">Ecological Integration</h3>
-                  </div>
-                  <div className="space-y-8">
-                    <div className="border-l-2 border-earth-olive pl-6">
-                      <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Living Roofs</h4>
-                      <p className="text-muted-foreground leading-relaxed">
-                        The entire structure is blanketed with local soil seeded with the same plant community as its host biome — mopaneveld, fynbos, or grassy savanna. This provides massive thermal mass, reduces cooling loads, and restores the habitat footprint to near zero.
-                      </p>
-                    </div>
-                    <div className="border-l-2 border-earth-sand pl-6">
-                      <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Rammed Earth & Stone</h4>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Constructed using materials excavated directly from the site — gneissic stone and rammed earth walls. They breathe, regulate humidity, and match the exact chromatic signature of the surrounding landscape.
-                      </p>
-                    </div>
-                    <div className="border-l-2 border-earth-stone pl-6">
-                      <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Climate Response</h4>
-                      <p className="text-muted-foreground leading-relaxed">
-                        High-level windows enable cross-ventilation. The sunken form creates natural shade. Evaporative cooling channels use the water channel system to passively cool internal spaces — architecture that listens to the climate rather than fighting it.
-                      </p>
-                    </div>
-                    <div className="border-l-2 border-earth-olive pl-6">
-                      <h4 className="font-sans font-medium text-foreground tracking-wide mb-2 uppercase text-sm">Natural Water Purification</h4>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Subtle integration of bee-eater clay banks that conceal and support natural water purification systems — every detail exists with purpose, from the positioning of each structure for optimal light, to the stillness of reflection water engineered for undisturbed imagery.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* What the Reserve Offers */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="font-serif text-3xl text-foreground mb-6">What the Reserve Offers</h3>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  Klaserie Private Nature Reserve is one of South Africa's largest unfenced private reserves, seamlessly integrated into the Greater Kruger ecosystem. No crowds. No boundaries between you and the wild.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    { title: "Big 5 Wildlife", desc: "Lion, leopard, elephant, rhino, and buffalo roam freely through the reserve." },
-                    { title: "380+ Bird Species", desc: "A birder's paradise — from raptors and hornbills to rare woodland kingfishers." },
-                    { title: "Night Safaris", desc: "Nocturnal drives reveal a hidden world — civets, genets, and nightjars emerge after dark." },
-                    { title: "Walking Safaris", desc: "Track game on foot with experienced rangers — the most intimate encounter nature offers." },
-                    { title: "Photography Safaris", desc: "Specialist photographic drives timed to golden hour for world-class wildlife images." },
-                    { title: "No-Fence Boundary", desc: "Open to Kruger National Park — wildlife moves freely across one of Africa's great ecosystems." },
-                  ].map((item, idx) => (
-                    <div key={idx} className="bg-card border border-border p-5">
-                      <h4 className="font-sans font-medium text-sm uppercase tracking-widest text-foreground mb-2">{item.title}</h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Nearby Attractions */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="font-serif text-3xl text-foreground mb-6">Nearby Attractions</h3>
-                <div className="space-y-5">
-                  {[
-                    { name: "Kruger National Park", dist: "±12 km", desc: "One of Africa's greatest game reserves — the Greater Kruger ecosystem extends directly from Klaserie's eastern boundary." },
-                    { name: "Blyde River Canyon", dist: "±60 km", desc: "Africa's largest green canyon. The Three Rondavels, Bourke's Luck Potholes, and God's Window are all within reach." },
-                    { name: "Hoedspruit Endangered Species Centre", dist: "±43 km", desc: "A cheetah and endangered species rehabilitation and breeding facility — home to cheetah, wild dog, and pangolin." },
-                    { name: "Kapama Game Reserve", dist: "±30 km", desc: "Renowned Big 5 game reserve offering luxury bush experiences and specialist photography safaris." },
-                    { name: "Panorama Route & Abel Erasmus Pass", dist: "±80 km", desc: "One of South Africa's most scenic drives through the Drakensberg escarpment — waterfalls, valleys, and dramatic passes." },
-                    { name: "Eastgate Airport", dist: "±37 km", desc: "Direct bush flights from Johannesburg and Cape Town. Fly-in access to the Lowveld, no long road transfers." },
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex gap-5 py-4 border-b border-border last:border-0">
-                      <div className="shrink-0 text-right min-w-[60px]">
-                        <span className="text-xs font-mono tracking-widest text-earth-olive">{item.dist}</span>
-                      </div>
-                      <div>
-                        <h4 className="font-sans font-medium text-foreground text-sm mb-1">{item.name}</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ECOLOGICAL INTEGRATION */}
+      <section id="sustainability" className="py-24 md:py-32 px-6 bg-card">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-16">
+            <Leaf className="w-6 h-6 text-earth-olive" />
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground">Ecological Integration</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+            {[
+              {
+                color: "border-earth-olive",
+                title: "Living Roofs",
+                desc: "The entire structure is blanketed with local soil seeded with the same plant community as its host biome — mopaneveld, fynbos, or grassy savanna. This provides massive thermal mass, reduces cooling loads, and restores the habitat footprint to near zero.",
+              },
+              {
+                color: "border-earth-sand",
+                title: "Rammed Earth & Stone",
+                desc: "Constructed using materials excavated directly from the site — gneissic stone and rammed earth walls. They breathe, regulate humidity, and match the exact chromatic signature of the surrounding landscape.",
+              },
+              {
+                color: "border-earth-stone",
+                title: "Climate Response",
+                desc: "High-level windows enable cross-ventilation. The sunken form creates natural shade. Evaporative cooling channels use the water channel system to passively cool internal spaces — architecture that listens to the climate rather than fighting it.",
+              },
+              {
+                color: "border-earth-olive",
+                title: "Natural Water Purification",
+                desc: "Subtle integration of bee-eater clay banks that conceal and support natural water purification systems — every detail exists with purpose, from the positioning of each structure for optimal light, to the stillness of reflection water engineered for undisturbed imagery.",
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className={`border-l-2 ${item.color} pl-6`}
+              >
+                <h4 className="font-sans font-medium text-foreground tracking-wide mb-3 uppercase text-sm">{item.title}</h4>
+                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT THE RESERVE OFFERS */}
+      <section className="py-24 md:py-32 px-6 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">What the Reserve Offers</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
+              Klaserie Private Nature Reserve is one of South Africa's largest unfenced private reserves, seamlessly integrated into the Greater Kruger ecosystem. No crowds. No boundaries between you and the wild.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { title: "Big 5 Wildlife", desc: "Lion, leopard, elephant, rhino, and buffalo roam freely through the reserve." },
+              { title: "380+ Bird Species", desc: "A birder's paradise — from raptors and hornbills to rare woodland kingfishers." },
+              { title: "Night Safaris", desc: "Nocturnal drives reveal a hidden world — civets, genets, and nightjars emerge after dark." },
+              { title: "Walking Safaris", desc: "Track game on foot with experienced rangers — the most intimate encounter nature offers." },
+              { title: "Photography Safaris", desc: "Specialist photographic drives timed to golden hour for world-class wildlife images." },
+              { title: "No-Fence Boundary", desc: "Open to Kruger National Park — wildlife moves freely across one of Africa's great ecosystems." },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="bg-card border border-border p-6 group hover:border-earth-olive/40 transition-colors duration-300"
+              >
+                <div className="w-8 h-[2px] bg-earth-olive mb-5" />
+                <h4 className="font-sans font-medium text-sm uppercase tracking-widest text-foreground mb-3">{item.title}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEARBY ATTRACTIONS */}
+      <section className="py-24 md:py-32 px-6 bg-card">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">Nearby Attractions</h2>
+            <p className="text-muted-foreground leading-relaxed max-w-2xl">
+              Positioned at the heart of one of Africa's most spectacular regions — everything within reach.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-0">
+            {[
+              { name: "Kruger National Park", dist: "±12 km", desc: "One of Africa's greatest game reserves — the Greater Kruger ecosystem extends directly from Klaserie's eastern boundary." },
+              { name: "Blyde River Canyon", dist: "±60 km", desc: "Africa's largest green canyon. The Three Rondavels, Bourke's Luck Potholes, and God's Window are all within reach." },
+              { name: "Hoedspruit Endangered Species Centre", dist: "±43 km", desc: "A cheetah and endangered species rehabilitation and breeding facility — home to cheetah, wild dog, and pangolin." },
+              { name: "Kapama Game Reserve", dist: "±30 km", desc: "Renowned Big 5 game reserve offering luxury bush experiences and specialist photography safaris." },
+              { name: "Panorama Route & Abel Erasmus Pass", dist: "±80 km", desc: "One of South Africa's most scenic drives through the Drakensberg escarpment — waterfalls, valleys, and dramatic passes." },
+              { name: "Eastgate Airport", dist: "±37 km", desc: "Direct bush flights from Johannesburg and Cape Town. Fly-in access to the Lowveld, no long road transfers." },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="flex gap-6 py-7 border-b border-border"
+              >
+                <div className="shrink-0 w-20 pt-0.5">
+                  <span className="text-sm font-mono tracking-widest text-earth-olive font-medium">{item.dist}</span>
+                </div>
+                <div>
+                  <h4 className="font-sans font-medium text-foreground text-sm mb-2 uppercase tracking-wide">{item.name}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
