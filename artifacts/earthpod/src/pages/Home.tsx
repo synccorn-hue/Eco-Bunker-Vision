@@ -29,9 +29,11 @@ export default function Home() {
       <section id="top" ref={heroRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-earth-deep">
         <motion.div style={{ y, opacity }} className="absolute inset-0 w-full h-full">
           <img
-            src={`${import.meta.env.BASE_URL}images/hero-landscape.png`}
+            src={`${import.meta.env.BASE_URL}images/hero-landscape.webp`}
             alt="African savanna landscape"
             className="w-full h-full object-cover object-center opacity-80"
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
         </motion.div>
@@ -187,9 +189,10 @@ export default function Home() {
               className="relative aspect-[4/3] md:aspect-[4/5] overflow-hidden"
             >
               <img
-                src={`${import.meta.env.BASE_URL}images/gallery-photographer-bunker.png`}
+                src={`${import.meta.env.BASE_URL}images/gallery-photographer-bunker.webp`}
                 alt="Wildlife photographer in the Eco Bunker — eye-level with nature"
                 className="w-full h-full object-cover object-center"
+            loading="lazy"
               />
             </motion.div>
           </div>
@@ -238,9 +241,10 @@ export default function Home() {
               className="relative aspect-square md:aspect-[4/5] overflow-hidden"
             >
               <img
-                src={`${import.meta.env.BASE_URL}images/sketch-render.png`}
+                src={`${import.meta.env.BASE_URL}images/sketch-render.webp`}
                 alt="Ubuntu Reflections architectural sketch — watercolour render"
                 className="w-full h-full object-cover object-center"
+            loading="lazy"
               />
             </motion.div>
           </div>
@@ -264,9 +268,10 @@ export default function Home() {
               className="relative aspect-[4/3] overflow-hidden order-2 md:order-1"
             >
               <img
-                src={`${import.meta.env.BASE_URL}images/gallery-eco-lodge-savanna.png`}
+                src={`${import.meta.env.BASE_URL}images/gallery-eco-lodge-savanna.webp`}
                 alt="Eco Bunker integrated into the African savanna"
                 className="w-full h-full object-cover object-center"
+            loading="lazy"
               />
             </motion.div>
             <motion.div
@@ -395,9 +400,10 @@ export default function Home() {
             <div className="absolute top-4 left-4 z-10 text-xs font-mono text-muted-foreground tracking-widest uppercase">Fig 1. Plan View &amp; Section</div>
             <div className="w-full border border-border overflow-hidden bg-[#f5f0e8]">
               <img
-                src={`${import.meta.env.BASE_URL}images/plan-view.png`}
+                src={`${import.meta.env.BASE_URL}images/plan-view.webp`}
                 alt="Ubuntu Reflections architectural plan view and section drawing showing circular layout with boma, living areas, photography bunker, and waterhole"
                 className="w-full h-auto object-contain max-h-[80vh]"
+            loading="lazy"
               />
             </div>
             <div className="mt-4 text-center text-xs font-light text-muted-foreground flex items-center justify-center gap-4 tracking-widest uppercase">
@@ -533,9 +539,10 @@ export default function Home() {
                   className="hidden lg:block w-full h-[180px] mt-10 bg-earth-stone/10 border border-border relative overflow-hidden"
                 >
                   <img
-                    src={`${import.meta.env.BASE_URL}images/texture-stone.png`}
+                    src={`${import.meta.env.BASE_URL}images/texture-stone.webp`}
                     alt="Architectural texture"
                     className="w-full h-full object-cover opacity-60 mix-blend-multiply"
+            loading="lazy"
                   />
                   <div className="absolute inset-0 flex items-center justify-center p-8">
                     <Map className="w-10 h-10 text-earth-stone/50" strokeWidth={1} />
@@ -777,13 +784,16 @@ export default function Home() {
                 <p className="text-xs font-mono tracking-widest uppercase text-white/40 mb-4">In collaboration with</p>
                 <div className="flex flex-wrap gap-6 items-center">
                   <a href="https://dcc-consulting.co.za/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
-                    <img src={`${import.meta.env.BASE_URL}images/logo-dcc.png`} alt="DCC Consulting" className="h-10 w-auto object-contain" />
+                    <img src={`${import.meta.env.BASE_URL}images/logo-dcc.png`} alt="DCC Consulting" className="h-10 w-auto object-contain"
+            loading="lazy" />
                   </a>
                   <a href="https://allofarch.com/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
-                    <img src={`${import.meta.env.BASE_URL}images/logo-aoa.jpg`} alt="AOA — All of Architecture" className="h-10 w-auto object-contain rounded-sm" />
+                    <img src={`${import.meta.env.BASE_URL}images/logo-aoa.jpg`} alt="AOA — All of Architecture" className="h-10 w-auto object-contain rounded-sm"
+            loading="lazy" />
                   </a>
                   <a href="https://www.huizemark.com/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
-                    <img src={`${import.meta.env.BASE_URL}images/logo-huizemark.png`} alt="Huizemark" className="h-10 w-auto object-contain" />
+                    <img src={`${import.meta.env.BASE_URL}images/logo-huizemark.png`} alt="Huizemark" className="h-10 w-auto object-contain"
+            loading="lazy" />
                   </a>
                 </div>
               </div>
@@ -884,12 +894,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-16">
             {[
               { label: "Safari at Golden Hour", src: "gallery-safari-sunset.jpg" },
-              { label: "Waterside Integration", src: "gallery-waterside-lodge.png" },
-              { label: "Photographer in the Bunker", src: "gallery-photographer-bunker.png" },
-              { label: "Earth-Integrated Exterior", src: "gallery-eco-lodge-savanna.png" },
-              { label: "Curved Lodge at Waterhole", src: "gallery-curved-lodge-waterhole.png" },
-              { label: "Boma Lounge at Dusk", src: "gallery-boma-lounge.png" },
-              { label: "Bunker Under the Stars", src: "gallery-bunker-night.png" },
+              { label: "Waterside Integration", src: "gallery-waterside-lodge.webp" },
+              { label: "Photographer in the Bunker", src: "gallery-photographer-bunker.webp" },
+              { label: "Earth-Integrated Exterior", src: "gallery-eco-lodge-savanna.webp" },
+              { label: "Curved Lodge at Waterhole", src: "gallery-curved-lodge-waterhole.webp" },
+              { label: "Boma Lounge at Dusk", src: "gallery-boma-lounge.webp" },
+              { label: "Bunker Under the Stars", src: "gallery-bunker-night.webp" },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -903,6 +913,7 @@ export default function Home() {
                   src={`${import.meta.env.BASE_URL}images/${item.src}`}
                   alt={item.label}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -1067,6 +1078,7 @@ export default function Home() {
                 src={`${import.meta.env.BASE_URL}images/logo-huizemark.png`}
                 alt="Huizemark"
                 className="h-14 w-auto object-contain"
+            loading="lazy"
               />
               <span className="text-xs tracking-widest uppercase text-white/40 font-light">Huizemark</span>
             </a>
@@ -1081,6 +1093,7 @@ export default function Home() {
                 src={`${import.meta.env.BASE_URL}images/logo-aoa.jpg`}
                 alt="AOA — All of Architecture"
                 className="h-14 w-auto object-contain rounded-sm"
+            loading="lazy"
               />
               <span className="text-xs tracking-widest uppercase text-white/40 font-light">All of Architecture</span>
             </a>
@@ -1095,6 +1108,7 @@ export default function Home() {
                 src={`${import.meta.env.BASE_URL}images/logo-dcc.png`}
                 alt="DCC — Dynamic Construction Consulting"
                 className="h-14 w-auto object-contain rounded-sm"
+            loading="lazy"
               />
               <span className="text-xs tracking-widest uppercase text-white/40 font-light">DCC Consulting</span>
             </a>
